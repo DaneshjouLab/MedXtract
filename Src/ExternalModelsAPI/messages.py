@@ -8,9 +8,9 @@ class Messages:
     def __init__(self):
     
         pass
+
     def buildMessage():
         pass
     
 
 
-    # how do you plan architecture
