@@ -77,6 +77,12 @@ class TestPrompt(unittest.TestCase):
         with self.assertRaises(AttributeError):
             prompt.insert(message = message)
         
+    def test_clear(self):
+        prompt = Prompt()
+        prompt.add(content = "this is test add 1", sender = "user")
+        prompt.add(content = "this is test add 2", sender = "assistant")
+        prompt.clear()
+        self.assertEqual(len(prompt.getList()), 0)
 
 
 
