@@ -1,6 +1,6 @@
 # you have many data objects, but only 
 # test2
-class Messages:
+class Message:
     """
     builds Messages for the api's
     
