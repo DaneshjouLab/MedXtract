@@ -1,6 +1,6 @@
 import unittest
 from messages import Message
-from prompt_list import Prompt
+from prompt_list import Prompt_List
 #testing
 class TestMessage(unittest.TestCase):
     def test_proper_initialization(self):
@@ -23,11 +23,11 @@ class TestMessage(unittest.TestCase):
 
 class TestPrompt(unittest.TestCase):
     def test_proper_initialization(self):
-        prompt = Prompt()
+        prompt = Prompt_List()
         self.assertEqual(len(prompt.getList()), 0)
 
     def test_add(self):
-        prompt = Prompt()
+        prompt = Prompt_List()
         content = "this is test add 1"
         role = "user"
         message = Message(content = content, role = role)
@@ -47,7 +47,7 @@ class TestPrompt(unittest.TestCase):
         self.assertEqual(prompt.peek().getRole(), None)
     
     def test_insert(self):
-        prompt = Prompt()
+        prompt = Prompt_List()
         prompt.add(content = "this is test add 1", role = "user")
         prompt.add(content = "this is test add 2", role = "assistant")
         content = "this is test add 3"
@@ -78,7 +78,7 @@ class TestPrompt(unittest.TestCase):
             prompt.insert(message = message)
         
     def test_clear(self):
-        prompt = Prompt()
+        prompt = Prompt_List()
         prompt.add(content = "this is test add 1", role = "user")
         prompt.add(content = "this is test add 2", role = "assistant")
         prompt.clear()

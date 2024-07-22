@@ -1,6 +1,6 @@
 from messages import Message
 
-class Prompt:
+class Prompt_List:
     """""
         The prompt class is a glorified list contrained to only carry messages
     """""
