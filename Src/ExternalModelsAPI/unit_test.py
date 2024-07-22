@@ -1,7 +1,7 @@
 import unittest
 from messages import Message
 from prompt_list import Prompt
-
+#testing
 class TestMessage(unittest.TestCase):
     def test_proper_initialization(self):
         content = "this is test content"
