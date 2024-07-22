@@ -11,20 +11,20 @@ class Prompt:
     def add(self, **kwargs):
         if 'message' in kwargs and isinstance(kwargs['message'], Message):
             self.messageList.append(kwargs['message'])
-        elif 'content' in kwargs and 'sender' in kwargs:
-            message = Message(content=kwargs['content'], sender=kwargs['sender'])
-            self.messageList.append(message)
         else:
-            raise AttributeError("Invalid input: must provide either a Message instance or 'content' and 'sender' attributes")
+            message = Message(**kwargs)
+            self.messageList.append(message)
 
-    def insert(self, index, **kwargs):
+    def insert(self, **kwargs):
+        if 'index' not in kwargs:
+            raise AttributeError("An 'index' keyword argument is required for the insert method")
+
+        index = kwargs.pop('index')
         if 'message' in kwargs and isinstance(kwargs['message'], Message):
             self.messageList.insert(index, kwargs['message'])
-        elif 'content' in kwargs and 'sender' in kwargs:
-            message = Message(content=kwargs['content'], sender=kwargs['sender'])
-            self.messageList.insert(index, message)
         else:
-            raise AttributeErrorError("Invalid input: must provide either a Message instance or 'content' and 'sender' attributes")
+            message = Message(**kwargs)
+            self.messageList.insert(index, message)
 
     def pop(self):
         self.messageList.pop()
