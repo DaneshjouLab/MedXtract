@@ -19,10 +19,10 @@ class ChatGPT(baseAPI):
         self.client = OpenAI(api_key = self.api_key)
 
     def formatRequest(self, **kwargs):
-        
+        pass 
 
     def sendRequest(self, **kwargs):
         
-
+        pass
     def unpackageResponse(self, **kwargs):
-        
+        pass
