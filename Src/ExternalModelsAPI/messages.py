@@ -1,10 +1,12 @@
 # you have many data objects, but only 
-# test2
+
 class Message:
     """
     builds Messages for the api's
     
     """
+
+    # Currently a message only contains the content and sender information could add content type to future proof
     def __init__(self, **kwargs):
         allowed_attributes = {'content': None, 'sender': None}
         
