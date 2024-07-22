@@ -186,19 +186,4 @@ class PDF_Reader:
             return {}
 
 # Example unit test stubs
-def test_load_pdf():
-    """
-    Test the load_pdf method.
-    """
-    processor = PDFProcessor()
-    processor.load_pdf("sample.pdf")
-    assert processor.pdf_document is not None
 
-def test_extract_text():
-    """
-    Test the extract_text method.
-    """
-    processor = PDFProcessor()
-    processor.load_pdf("sample.pdf")
-    text = processor.extract_text()
-    assert text == "Extracted text from PDF"
