@@ -11,12 +11,12 @@ class baseAPI(ABC):
         pass
 
     # should take in an instance of the Prompt class
-    def formatRequest(self):
+    def formatRequest(self, **kwargs):
         pass
 
-    def sendRequest(self):
+    def sendRequest(self, **kwargs):
         pass
 
-    def unpackageResponse(self):
+    def unpackageResponse(self, **kwargs):
         pass
     

@@ -7,7 +7,7 @@ class Prompt:
     def __init__(self):
         self.messageList = []
     
-    # functionality allows either the input of a Message variable or the content and sender of a message
+    # functionality allows either the input of a Message variable or the content and role of a message
     def add(self, **kwargs):
         if 'message' in kwargs and isinstance(kwargs['message'], Message):
             self.messageList.append(kwargs['message'])
