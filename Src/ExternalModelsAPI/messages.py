@@ -13,7 +13,7 @@ class TextContent:
 class Message:
     # Currently a message only contains the content and sender information could add content type to future proof
     def __init__(self, **kwargs):
-        allowed_attributes = {'content': None, 'role': None}
+        allowed_attributes = {'content': None, 'sender': None}
         
         for key, value in kwargs.items():
             if key in allowed_attributes:
@@ -32,28 +32,28 @@ class Message:
         return self.sender
 
     
-    contentDictionary={}
-    def __init__(self, role,prompt=None):
-        self.role = role
-        self.content = []
+    # contentDictionary={}
+    # def __init__(self, role,prompt=None):
+    #     self.role = role
+    #     self.content = []
         
-        if not (prompt is None):
-            self.buildTextMessage(prompt)
+    #     if not (prompt is None):
+    #         self.buildTextMessage(prompt)
 
 
-    def add_text(self, text):
-        self.content.append(TextContent(text))
-    # def add_image(self, image_url=None, base64_str=None):
-    #     self.content.append(ImageContent(image_url, base64_str))
+    # def add_text(self, text):
+    #     self.content.append(TextContent(text))
+    # # def add_image(self, image_url=None, base64_str=None):
+    # #     self.content.append(ImageContent(image_url, base64_str))
 
-    def to_dict(self):
-        self.contentDictionary={"role": self.role, "content": [c.to_dict() for c in self.content]}
-        return self.contentDictionary
+    # def to_dict(self):
+    #     self.contentDictionary={"role": self.role, "content": [c.to_dict() for c in self.content]}
+    #     return self.contentDictionary
     
-    def buildTextMessage(self,prompt):
-       self.add_text(prompt)
-       self.to_dict()
-       return
+    # def buildTextMessage(self,prompt):
+    #    self.add_text(prompt)
+    #    self.to_dict()
+    #    return
 
 
         
