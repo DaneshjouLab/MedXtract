@@ -1,5 +1,5 @@
 from baseAPI import baseAPI
-from promptconstructor import Prompt
+from prompt_list import Prompt
 from messages import Message
 from openai import OpenAI
 
