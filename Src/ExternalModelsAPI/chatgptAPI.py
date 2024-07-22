@@ -1,14 +1,11 @@
-# you have many data objects, but only 
+from baseAPI import baseAPI
+from promptconstructor import Prompt
+from messages import Message
+from openai import OpenAI
 
-class Message:
-    """
-    builds Messages for the api's
-    
-    """
-
-    # Currently a message only contains the content and role information could add content type to future proof
+class ChatGPT(baseAPI):
     def __init__(self, **kwargs):
-        allowed_attributes = {'content': None, 'role': None}
+        allowed_attributes = {'model': None, 'api_key': None}
         
         for key, value in kwargs.items():
             if key in allowed_attributes:
@@ -19,13 +16,13 @@ class Message:
         for key in allowed_attributes:
             if not hasattr(self, key):
                 setattr(self, key, allowed_attributes[key])
+        self.client = OpenAI(api_key = self.api_key)
 
-    def getContent(self):
-        return self.content
-    
-    def getRole(self):
-        return self.role
+    def formatRequest(self, **kwargs):
+        
 
-    
+    def sendRequest(self, **kwargs):
+        
 
-
+    def unpackageResponse(self, **kwargs):
+        
