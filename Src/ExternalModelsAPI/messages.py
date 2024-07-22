@@ -2,17 +2,6 @@
 # the following 
 from abc import ABC
 
-class Message(ABC):
-    """
-    builds Messages for the api's
-    
-    """
-    def __init__(self):
-    
-        pass
-
-    def buildMessage():
-        pass
 class TextContent:
     def __init__(self, text):
         self.type = "text"
@@ -22,6 +11,26 @@ class TextContent:
         return {"type": self.type, "text": self.text}
 
 class Message:
+    # Currently a message only contains the content and sender information could add content type to future proof
+    def __init__(self, **kwargs):
+        allowed_attributes = {'content': None, 'role': None}
+        
+        for key, value in kwargs.items():
+            if key in allowed_attributes:
+                setattr(self, key, value)
+            else:
+                raise AttributeError(f"Invalid attribute: {key}")
+            
+        for key in allowed_attributes:
+            if not hasattr(self, key):
+                setattr(self, key, allowed_attributes[key])
+
+    def getContent(self):
+        return self.content
+    
+    def getSender(self):
+        return self.sender
+
     
     contentDictionary={}
     def __init__(self, role,prompt=None):
