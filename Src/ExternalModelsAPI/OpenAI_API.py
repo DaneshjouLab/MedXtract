@@ -29,18 +29,25 @@ class OpenAI_API(baseAPI):
             prompt_list = kwargs['prompt_list'].getList()
             messages = []
             for message in prompt_list:
-                messages.append({"role": message.getRole(), "content": message.getContent})
-            self.config['messages'] = messages
+                messages.append({"role": message.getRole(), "content": message.getContent()})
+            setattr(self.config, 'messages', messages)
         else:
             raise AttributeError(f"'prompt_list' attribute required:")
     
     def sendRequest(self):  
-        response = self.client.chat.completions.create(**asdict(self.config))
-        return response
+        try: 
+            response = self.client.chat.completions.create(**asdict(self.config))
+            return response
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def unpackageResponse(self, **kwargs):
         if 'response' in kwargs:
-            return kwargs['response'].choices[0].message.content
+            if kwargs['response'] != None:
+                return kwargs['response'].choices[0].message.content
+            else:
+                return None
         else:
             raise AttributeError(f"'response' attribute required:")
         

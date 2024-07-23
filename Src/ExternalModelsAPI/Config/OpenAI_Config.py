@@ -22,5 +22,4 @@ class OpenAIConfig:
     top_p: Optional[float] = 1.0
     tools: Optional[List[Dict[str, Any]]] = None
     tool_choice: Optional[Union[str, Dict[str, Any]]] = None
-    parallel_tool_calls: Optional[bool] = True
     user: Optional[str] = None
