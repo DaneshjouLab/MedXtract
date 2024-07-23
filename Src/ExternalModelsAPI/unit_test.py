@@ -2,7 +2,7 @@ import unittest
 from Message import Message
 from Prompt_List import Prompt_List
 from OpenAI_API import OpenAI_API
-#testing
+
 class TestMessage(unittest.TestCase):
     def test_proper_initialization(self):
         content = "this is test content"

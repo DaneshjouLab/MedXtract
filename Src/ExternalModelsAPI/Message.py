@@ -35,6 +35,3 @@ class Message:
     def getRole(self):
         return self.role
 
-    
-
-
