@@ -87,7 +87,8 @@ class TestPrompt(unittest.TestCase):
 
 class TestOpenAI_API(unittest.TestCase):
     def test_json_initialization(self):
-        gpt = OpenAI_API(model = "hi")
+        gpt = OpenAI_API(json_file = "OpenAI_Config_UNITTEST.json")
+        self.assertEqual(gpt.getConfig()['model'], "gpt-3.5-turbo")
 
 
 

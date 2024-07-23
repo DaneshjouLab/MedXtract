@@ -11,10 +11,10 @@ from dataclasses import asdict
 load_dotenv()
 
 class OpenAI_API(baseAPI):
-    # Config/Dataclasses
     def __init__(self, **kwargs):
-        if 'json_path' in kwargs:
-            with open(kwargs['json_path'], 'r') as f:
+        if 'json_file' in kwargs:
+            json_path = os.path.join(os.path.dirname(__file__), '../../Config/', kwargs['json_file'])
+            with open(json_path, 'r') as f:
                 config_data = json.load(f)
             self.config = OpenAIConfig(**config_data)
         else:
