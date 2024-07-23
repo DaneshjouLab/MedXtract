@@ -1,4 +1,4 @@
-from messages import Message
+from Message import Message
 
 class Prompt_List:
     """""
