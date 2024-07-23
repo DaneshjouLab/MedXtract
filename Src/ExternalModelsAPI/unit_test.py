@@ -1,6 +1,7 @@
 import unittest
 from Message import Message
 from Prompt_List import Prompt_List
+from OpenAI_API import OpenAI_API
 #testing
 class TestMessage(unittest.TestCase):
     def test_proper_initialization(self):
@@ -83,6 +84,10 @@ class TestPrompt(unittest.TestCase):
         prompt.add(content = "this is test add 2", role = "assistant")
         prompt.clear()
         self.assertEqual(len(prompt.getList()), 0)
+
+class TestOpenAI_API(unittest.TestCase):
+    def test_json_initialization(self):
+        gpt = OpenAI_API(model = "hi")
 
 
 
