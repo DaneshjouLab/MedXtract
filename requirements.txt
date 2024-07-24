@@ -19,4 +19,4 @@ soupsieve==2.5
 tqdm==4.66.4
 typing_extensions==4.12.2
 urllib3==2.2.2
-dotenv
+python-dotenv==1.0.1
