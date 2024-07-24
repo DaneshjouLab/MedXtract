@@ -1,6 +1,7 @@
 import unittest
+
 from messages import Message
-from prompt_list import Prompt_List
+from Prompt_List import Prompt_List
 #testing
 class TestMessage(unittest.TestCase):
     def test_proper_initialization(self):
