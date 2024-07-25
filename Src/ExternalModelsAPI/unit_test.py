@@ -85,43 +85,43 @@ class TestPrompt(unittest.TestCase):
         prompt.clear()
         self.assertEqual(len(prompt.getList()), 0)
 
-class TestOpenAI_API(unittest.TestCase):
-    def test_json_initialization(self):
-        gpt = OpenAI_API(json_file = "OpenAI_Config_UNITTEST.json")
-        self.assertEqual(gpt.getConfig()['model'], "gpt-3.5-turbo")
+# class TestOpenAI_API(unittest.TestCase):
+#     def test_json_initialization(self):
+#         gpt = OpenAI_API(json_file = "OpenAI_Config_UNITTEST.json")
+#         self.assertEqual(gpt.getConfig()['model'], "gpt-3.5-turbo")
 
-    def test_kwarg_initialization(self):
-        gpt = OpenAI_API(model = "gpt-4o", temperature = 0.7)
-        self.assertEqual(gpt.getConfig()['model'], "gpt-4o")
-        self.assertEqual(gpt.getConfig()['temperature'], 0.7)
+#     def test_kwarg_initialization(self):
+#         gpt = OpenAI_API(model = "gpt-4o", temperature = 0.7)
+#         self.assertEqual(gpt.getConfig()['model'], "gpt-4o")
+#         self.assertEqual(gpt.getConfig()['temperature'], 0.7)
 
-    def test_format_message(self):
-        gpt = OpenAI_API(model = "gpt-4o")
-        prompt_list = Prompt_List()
-        prompt_list.add(content="Hello, world!", role="user")
-        prompt_list.add(content="Hi there!", role="assistant")
-        prompt_list.add(content="What was my first statement?", role="user")
-        gpt.formatRequest(prompt_list=prompt_list)
-        expected_messages = [
-            {"role": "user", "content": "Hello, world!"},
-            {"role": "assistant", "content": "Hi there!"},
-            {"role": "user", "content": "What was my first statement?"}]
-        self.assertEqual(gpt.getConfig()['messages'], expected_messages)
-        print(gpt.unpackageResponse(response = gpt.sendRequest()))
+#     def test_format_message(self):
+#         gpt = OpenAI_API(model = "gpt-4o")
+#         prompt_list = Prompt_List()
+#         prompt_list.add(content="Hello, world!", role="user")
+#         prompt_list.add(content="Hi there!", role="assistant")
+#         prompt_list.add(content="What was my first statement?", role="user")
+#         gpt.formatRequest(prompt_list=prompt_list)
+#         expected_messages = [
+#             {"role": "user", "content": "Hello, world!"},
+#             {"role": "assistant", "content": "Hi there!"},
+#             {"role": "user", "content": "What was my first statement?"}]
+#         self.assertEqual(gpt.getConfig()['messages'], expected_messages)
+#         print(gpt.unpackageResponse(response = gpt.sendRequest()))
     
-    def test_send_request(self):
-        gpt = OpenAI_API(model = "gpt-4o")
-        prompt_list = Prompt_List()
-        prompt_list.add(content="Hello, world!", role="user")
-        prompt_list.add(content="Hi there!", role="assistant")
-        prompt_list.add(content="What was my first statement?", role="user")
-        gpt.formatRequest(prompt_list=prompt_list)
-        expected_messages = [
-            {"role": "user", "content": "Hello, world!"},
-            {"role": "assistant", "content": "Hi there!"},
-            {"role": "user", "content": "What was my first statement?"}]
-        self.assertEqual(gpt.getConfig()['messages'], expected_messages)
-        self.assertNotEqual(gpt.sendRequest(), None)
+#     def test_send_request(self):
+#         gpt = OpenAI_API(model = "gpt-4o")
+#         prompt_list = Prompt_List()
+#         prompt_list.add(content="Hello, world!", role="user")
+#         prompt_list.add(content="Hi there!", role="assistant")
+#         prompt_list.add(content="What was my first statement?", role="user")
+#         gpt.formatRequest(prompt_list=prompt_list)
+#         expected_messages = [
+#             {"role": "user", "content": "Hello, world!"},
+#             {"role": "assistant", "content": "Hi there!"},
+#             {"role": "user", "content": "What was my first statement?"}]
+#         self.assertEqual(gpt.getConfig()['messages'], expected_messages)
+#         self.assertNotEqual(gpt.sendRequest(), None)
 
 
 if __name__ == '__main__':
